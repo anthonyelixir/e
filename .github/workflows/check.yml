@@ -31,3 +31,10 @@ jobs:
 
       - name: Compile the mod against Horizon (slow, several minutes)
         run: python3 horizon-mods/native/tools/native.py check "$GITHUB_WORKSPACE/mod"
+
+      - name: Show the tool's commands
+        if: always()
+        run: |
+          python3 horizon-mods/native/tools/native.py --help || true
+          ls horizon-mods/native/fps-overlay
+          cat horizon-mods/native/fps-overlay/horizon-native.json || true
