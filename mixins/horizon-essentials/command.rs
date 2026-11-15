@@ -1,5 +1,5 @@
 // command.rs: compiled as a local function inside native_command.
-fn command(game: &mut crate::game::Game<'_>, command: &str, ran: &mut bool) {
+fn on_command(game: &mut crate::game::Game<'_>, command: &str, ran: &mut bool) {
     use crate::game::horizon_essentials as e;
 
     let mut st = e::State {
