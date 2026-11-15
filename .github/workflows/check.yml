@@ -23,4 +23,4 @@ jobs:
           git clone --depth 1 https://github.com/horizon-rust/horizon-mods
 
       - name: Compile the mod against Horizon (slow, several minutes)
-        run: python3 horizon-mods/native/tools/native.py check mod
+        run: python3 horizon-mods/native/tools/native.py check "$GITHUB_WORKSPACE/mod"
