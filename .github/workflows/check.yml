@@ -22,5 +22,12 @@ jobs:
           sudo apt-get install -y rsync
           git clone --depth 1 https://github.com/horizon-rust/horizon-mods
 
+      - name: Use the same Horizon revision as the official mods
+        run: |
+          cat horizon-mods/native/fps-overlay/compatibility.json
+          cp horizon-mods/native/fps-overlay/compatibility.json mod/compatibility.json
+          REV=$(python3 -c "import json;print(json.load(open('mod/compatibility.json'))['horizon_revision'])")
+          sed -i "s/^horizon_revision = .*/horizon_revision = \"$REV\"/" mod/mixins/horizon-essentials/horizon-mixin.toml
+
       - name: Compile the mod against Horizon (slow, several minutes)
         run: python3 horizon-mods/native/tools/native.py check "$GITHUB_WORKSPACE/mod"
