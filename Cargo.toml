@@ -1,0 +1,10 @@
+[package]
+name = "horizon_essentials"
+version = "0.1.0"
+edition = "2021"
+description = "Horizon native mod: corner HUD, friends list, /friend commands"
+license = "MIT"
+
+# Same file Horizon's mixin tooling injects, built here so `cargo test` works.
+[lib]
+path = "mixins/horizon-essentials/runtime.rs"
