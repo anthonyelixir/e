@@ -19,7 +19,7 @@ jobs:
 
       - name: Get Horizon's mod tools
         run: |
-          sudo apt-get install -y rsync
+          sudo apt-get install -y rsync pkg-config libasound2-dev libudev-dev
           git clone --depth 1 https://github.com/horizon-rust/horizon-mods
 
       - name: Use the same Horizon revision as the official mods
